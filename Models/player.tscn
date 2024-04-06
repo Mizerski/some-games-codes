@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://h6shp5m43314"]
 
-[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_phlo2"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_48iuh"]
 [ext_resource type="Texture2D" uid="uid://dnl2aerncipmn" path="res://Sprites/SpaceShooterAssetPack_Ships.png" id="2_fmta4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0p6vn"]
@@ -22,7 +22,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_phlo2")
+script = ExtResource("1_48iuh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0p6vn")
@@ -32,3 +32,8 @@ texture_filter = 1
 rotation = -1.5708
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_xf4yi")
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(105, 0)
+rotation = 1.5708

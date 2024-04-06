@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://coohowr54k1ft"]
+
+[ext_resource type="Texture2D" uid="uid://bvoefeucjs6s4" path="res://Sprites/SpaceShooterAssetPack_Miscellaneous.png" id="1_1c6t5"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_7g1dm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4evn"]
+atlas = ExtResource("1_1c6t5")
+region = Rect2(80, 7, 8, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1du2q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4evn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yiyy"]
+size = Vector2(26, 10)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+top_level = true
+script = ExtResource("1_7g1dm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_1du2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_2yiyy")
