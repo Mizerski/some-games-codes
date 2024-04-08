@@ -35,5 +35,4 @@ sprite_frames = SubResource("SpriteFrames_xf4yi")
 
 [node name="ShootPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(105, 0)
-rotation = 1.5708
+position = Vector2(83, 1)

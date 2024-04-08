@@ -1,36 +1,41 @@
 [gd_scene load_steps=6 format=3 uid="uid://coohowr54k1ft"]
 
-[ext_resource type="Texture2D" uid="uid://bvoefeucjs6s4" path="res://Sprites/SpaceShooterAssetPack_Miscellaneous.png" id="1_1c6t5"]
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_7g1dm"]
+[ext_resource type="Texture2D" uid="uid://brlcuk5gx3q5i" path="res://Sprites/SpaceShooterAssetPack_Projectiles.png" id="1_fdyy1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4evn"]
-atlas = ExtResource("1_1c6t5")
-region = Rect2(80, 7, 8, 7)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng7du"]
+atlas = ExtResource("1_fdyy1")
+region = Rect2(0, 8, 7, 8)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1du2q"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qk3dn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o4evn")
+"texture": SubResource("AtlasTexture_ng7du")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yiyy"]
-size = Vector2(26, 10)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v66qx"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-top_level = true
+[node name="bullet" type="Area2D"]
+position = Vector2(-1, 0)
+rotation = 6.29961
 script = ExtResource("1_7g1dm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-rotation = 1.5708
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_1du2q")
+rotation = 1.5578
+scale = Vector2(3.14279, 3.14279)
+sprite_frames = SubResource("SpriteFrames_qk3dn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0)
-shape = SubResource("RectangleShape2D_2yiyy")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_v66qx")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-48.9934, 0.80464)
+rotation = 1.5708
+scale = Vector2(1.1629, 0.147593)

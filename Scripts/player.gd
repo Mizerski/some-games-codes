@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var speed = 100
 @export var health = 100
-@export var damage = 10
 @export var max_inertia = 20 
 @export var deceleration = 0.01 
 
@@ -27,8 +26,10 @@ func get_input():
 		shoot()
 
 func shoot():
+	if health <= 0:
+		return
 	var bullet = bullet_path.instantiate()
-	var offset = Vector2(speed / float(2), 0).rotated(get_rotation())
+	var offset = Vector2(speed / float(4), 0).rotated(get_rotation())
 	bullet.set_position(get_position() + offset)
 	bullet.set_rotation(get_rotation())
 	get_parent().add_child(bullet)
