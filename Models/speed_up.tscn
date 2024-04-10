@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://3q6qm7relgfb"]
+
+[ext_resource type="Script" path="res://Scripts/SpeedUP.gd" id="1_dvprf"]
+[ext_resource type="Texture2D" uid="uid://cpjb0yg0ync20" path="res://Sprites/SpaceShooterAssetPack_IU.png" id="2_wuyjv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ksgmy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nreap"]
+atlas = ExtResource("2_wuyjv")
+region = Rect2(72, 96, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xja74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nreap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SpeedUP" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_dvprf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.8, 3.8)
+shape = SubResource("CircleShape2D_ksgmy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_xja74")
